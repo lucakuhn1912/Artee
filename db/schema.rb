@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_16_142231) do
+ActiveRecord::Schema.define(version: 2019_05_16_154715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "arts", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "artist"
+    t.string "location"
+    t.float "price"
+    t.float "value"
+    t.boolean "availability"
+    t.bigint "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "picture"
+    t.index ["owner_id"], name: "index_arts_on_owner_id"
+  end
+
+  create_table "leases", force: :cascade do |t|
+    t.date "start"
+    t.date "end"
+    t.float "total_price"
+    t.bigint "user_id"
+    t.bigint "art_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["art_id"], name: "index_leases_on_art_id"
+    t.index ["user_id"], name: "index_leases_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +50,14 @@ ActiveRecord::Schema.define(version: 2019_05_16_142231) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "picture"
+    t.text "description"
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "arts", "users", column: "owner_id"
+  add_foreign_key "leases", "arts"
+  add_foreign_key "leases", "users"
 end
