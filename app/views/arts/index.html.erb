@@ -1,0 +1,5 @@
+<% @arts.each do |art| %>
+  <h1> <%= art.name %> </h1>
+  <h2> <%= art.description %> </h2>
+  <%= cl_image_tag art.picture, height: 200, crop: :fill %>
+<% end %>
