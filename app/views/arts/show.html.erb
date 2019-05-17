@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="card-product">
+    <div class="card-product ">
+      <%= cl_image_tag @art.picture, crop: :fill %>
+    </div>
+    <div class="card-product-infos box align-items-center mx-3">
+      <h1> <strong> <%= @art.name %> </strong></h1>
+      <h3> <%= @art.description %></h3>
+      <br>
+      <br>
+
+      <div class="details d-flex flex-column">
+        <h6> <strong> By: </strong><%= @art.artist %></h6>
+        <h6> <strong> Current location: </strong><%= @art.location %></h6>
+        <h6> <strong> Price: </strong><%= @art.price.to_i %>£/day</h6>
+        <h6> <strong> Market value: </strong><%= @art.value.to_i %>£</h6>
+        <h6> <strong> Owned by: </strong><%= @art.owner.name %></h6>
+        <% if @art.availability == true %>
+          <h6> <strong> Currently available </strong></h6>
+          <a class="book_button mt-3" href="#"> Book </a>
+        <% else %>
+          <h6> <strong> Currently unavailable </strong></h6>
+          <a class="not_available_button mt-3" href="#"> Notify me when available </a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

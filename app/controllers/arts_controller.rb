@@ -31,7 +31,6 @@ class ArtsController < ApplicationController
 
   def update
     # set_art
-    authorize @art
     if @art.update(art_params)
       redirect_to art_path(@art)
     else
@@ -55,5 +54,6 @@ class ArtsController < ApplicationController
 
   def set_art
     @art = Art.find(params[:id])
+    authorize @art
   end
 end
