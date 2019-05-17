@@ -13,14 +13,14 @@
         <%=  %>
       </li>
       <li class="nav-link">
-        <%= link_to "Add New Art", '#', class:"btn btn-flat btn-outline-light rounded" %>
+        <%= link_to "Add New Art", new_art_path, class:"btn btn-flat btn-outline-light rounded" %>
       </li>
       <li class="nav-item dropdown avatar-center">
         <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="">Profile</a>
           <a class="dropdown-item" href="#">Your Art Pieces</a>
-          <%= link_to "Logout", root_path, class:"dropdown-item" %>
+          <%=link_to "Log out", destroy_user_session_path, method: :delete, class:"dropdown-item"%>
         </div>
       </li>
     </ul>

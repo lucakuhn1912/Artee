@@ -18,9 +18,41 @@
   }
 }
 
+// .btn-small &:hover: {
+//     color: $red-new;
+//   }
+// }
+
 .button-primary {
   background-color: $red-new;
-  color: white;
+  a {
+    color: white;
+  }
+
+}
+
+.modify-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  a {
+    color: $red-new;
+    &:hover {
+      color: darken($red-new, 10%);
+    }
+  }
+}
+
+.destroy-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem
+}
+
+.update-btn {
+  position: absolute;
+  top: 1rem;
+  right: 2.5rem;
 }
 // @media only and (max-width:30em) {
 //  a.button4 {
