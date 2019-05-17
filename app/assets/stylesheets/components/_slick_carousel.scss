@@ -1,0 +1,21 @@
+.slick-carousel {
+  display: flex;
+  width: 90vw;
+  margin: 50px auto;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.carousel-item {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  margin: 0 50px;
+}
+
+.carousel-item:first-child {
+  margin-left: 0;
+}
