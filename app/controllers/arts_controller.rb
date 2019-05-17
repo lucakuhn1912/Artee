@@ -1,8 +1,8 @@
 class ArtsController < ApplicationController
   before_action :set_art, only: %i[show edit update destroy]
-
+  skip_before_action :authenticate_user!, only: %i[index show]
   def index
-    @arts = Art.all
+    @arts = policy_scope(Art).order(created_at: :desc)
   end
 
   def show
@@ -11,12 +11,13 @@ class ArtsController < ApplicationController
 
   def new
     @art = Art.new
+    authorize @art
   end
 
   def create
-    @owner = User.create(name: "TeeAr")
     @art = Art.new(art_params)
-    @art.owner = current_user
+    authorize @art
+    @art.owner = current_user if user_signed_in?
     if @art.save
       redirect_to arts_path
     else
@@ -30,6 +31,7 @@ class ArtsController < ApplicationController
 
   def update
     # set_art
+    authorize @art
     if @art.update(art_params)
       redirect_to art_path(@art)
     else
