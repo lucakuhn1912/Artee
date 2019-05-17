@@ -1,0 +1,27 @@
+<div class="container">
+  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-dark float-right" %>
+  <br>
+  <br>
+  <% @arts.each do |art| %>
+    <h1> <%= art.name %> </h1>
+    <h2> <%= art.description %> </h2>
+    <%= cl_image_tag art.picture, height: 200, crop: :fill %>
+    <% if policy(art).edit? %>
+      <%= link_to "Update", edit_art_path(art), class: "btn btn-warning m-3" %>
+    <% end %>
+    <% if policy(art).destroy? %>
+      <%= link_to "Remove art", art_path(art), method: :delete, class: "btn btn-danger m-3", data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  <% end %>
+  <br>
+  <% if policy(Art).create? %>
+    <%= link_to "New art", new_art_path, class: "btn btn-primary m-3" %>
+  <% end %>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
