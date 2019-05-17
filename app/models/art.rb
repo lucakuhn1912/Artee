@@ -3,6 +3,6 @@ class Art < ApplicationRecord
   has_many :leases
   validates :name, presence: true
   validates :description, presence: true, length: { minimum: 20 }
-  validates :price, numericality: { only_integer: true }
+  validates :price, numericality: true
   mount_uploader :picture, PhotoUploader
 end
