@@ -1,21 +1,41 @@
 <div class="container">
-  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-dark float-right" %>
-  <br>
-  <br>
-  <% @arts.each do |art| %>
-    <h1> <%= art.name %> </h1>
-    <h2> <%= art.description %> </h2>
-    <%= cl_image_tag art.picture, height: 200, crop: :fill %>
-    <% if policy(art).edit? %>
-      <%= link_to "Update", edit_art_path(art), class: "btn btn-warning m-3" %>
+
+
+  <div class="flex-row">
+    <% @arts.each do |art| %>
+      <div class="card-trip">
+          <% if policy(art).edit? %>
+            <div class="update-btn modify-btn rounded-circle">
+              <%= link_to edit_art_path(art), class:"btn-xs btn-default" do %>
+                <i class="fas fa-edit"></i>
+              <% end %>
+            </div>
+          <% end %>
+          <% if policy(art).destroy? %>
+            <div class="destroy-btn modify-btn rounded-circle">
+              <%= link_to art_path(art), method: :delete, class:" btn-xs", data: { confirm: 'Are you sure?' } do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
+            </div>
+          <% end %>
+        <%= cl_image_tag art.picture, height: 200, crop: :fill %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= art.name %></h2>
+            <p><%= art.description %></p>
+          </div>
+          <h2 class="card-trip-pricing">£<%= art.price.round(0) %></h2>
+
+          <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-trip-user avatar-bordered"/>
+        </div>
+      </div>
     <% end %>
-    <% if policy(art).destroy? %>
-      <%= link_to "Remove art", art_path(art), method: :delete, class: "btn btn-danger m-3", data: { confirm: 'Are you sure?' } %>
-    <% end %>
-  <% end %>
-  <br>
+  </div>
+
+
+
   <% if policy(Art).create? %>
-    <%= link_to "New art", new_art_path, class: "btn btn-primary m-3" %>
+    <%= link_to "List New Art", new_art_path, class: "btn btn-primary m-3" %>
   <% end %>
   <br>
   <br>
