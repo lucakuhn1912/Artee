@@ -1,21 +1,60 @@
 .slick-carousel {
   display: flex;
-  width: 90vw;
+  width: 75vw;
   margin: 50px auto;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
 }
 
+// .center-items {
+//   width: 70% !important;
+//   margin: 0 auto;
+// }
+
 .carousel-item {
   display: flex !important;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 250px;
-  height: 250px;
+  height: 500px;
   margin: 0 50px;
+}
+
+.carousel-item a {
+  justify-content: center;
 }
 
 .carousel-item:first-child {
   margin-left: 0;
+}
+
+.item-photo {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  height: 60%;
+  width: 100%;
+}
+
+.item-info {
+  height: 100%;
+  padding: 15px;
+  width: 100%;
+}
+
+.item-details {
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin: 40px auto;
+  height: 500px;
+  max-width: 240px;
+  position: relative;
+  transition: transform 0.3s cubic-bezier(.38,0,.61,1);
+  &:hover {
+    transform: scale(1.05) translateY(-15px);
+    box-shadow: 1px 1px 10px grey;
+  }
 }
