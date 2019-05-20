@@ -2,7 +2,14 @@ class ArtsController < ApplicationController
   before_action :set_art, only: %i[show edit update destroy]
   skip_before_action :authenticate_user!, only: %i[index show]
   def index
-    @arts = policy_scope(Art).order(created_at: :desc)
+    @arts = policy_scope(Art).where.not(latitude: nil, longitude: nil)
+
+    @markers = @arts.map do |art|
+      {
+        lat: art.latitude,
+        lng: art.longitude
+      }
+    end
   end
 
   def show
