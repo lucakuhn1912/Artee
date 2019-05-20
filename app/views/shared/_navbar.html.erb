@@ -21,6 +21,7 @@
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="">Profile</a>
           <a class="dropdown-item" href="#">Your Art Pieces</a>
+          <%=link_to "Your leases", leases_path, class:"dropdown-item"%>
           <%=link_to "Log out", destroy_user_session_path, method: :delete, class:"dropdown-item"%>
         </div>
       </li>
