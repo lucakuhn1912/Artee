@@ -8,13 +8,18 @@
 </div>
 
 <div class="slick-carousel">
-  <div class="carousel-item"><img src="http://placehold.it/300x300" alt=""></div>
-  <div class="carousel-item"><img src="http://placehold.it/300x300" alt=""></div>
-  <div class="carousel-item"><img src="http://placehold.it/300x300" alt=""></div>
-  <div class="carousel-item"><img src="http://placehold.it/300x300" alt=""></div>
-  <div class="carousel-item"><img src="http://placehold.it/300x300" alt=""></div>
-  <div class="carousel-item"><img src="http://placehold.it/300x300" alt=""></div>
+  <%= render @arts %>
 </div>
 <%= content_for(:after_js) do %>
 <%= javascript_pack_tag 'components/slick_carousel' %>
 <% end %>
+
+
+
+
+  <!-- <div class="carousel-item"><img src="http://placehold.it/300x300" alt=""></div>
+  <div class="carousel-item"><img src="http://placehold.it/300x300" alt=""></div>
+  <div class="carousel-item"><img src="http://placehold.it/300x300" alt=""></div>
+  <div class="carousel-item"><img src="http://placehold.it/300x300" alt=""></div>
+  <div class="carousel-item"><img src="http://placehold.it/300x300" alt=""></div>
+  <div class="carousel-item"><img src="http://placehold.it/300x300" alt=""></div> -->
