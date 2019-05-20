@@ -14,7 +14,15 @@ $light-pink: #DEE0F2;
 
 
 .red-font {
-  color: $red-new;
+  color: $red-new !important;
+  border-color: $red-new !important;
+}
+
+.button_hover {
+  &:hover {
+    background-color: $red-new !important;
+    color: white !important;
+  }
 }
 
 .white-font {
