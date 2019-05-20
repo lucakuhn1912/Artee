@@ -17,7 +17,7 @@
         <h6> <strong> Owned by: </strong><%= @art.owner.name %></h6>
         <% if @art.availability == true %>
           <h6> <strong> Currently available </strong></h6>
-          <a class="book_button mt-3" href="#"> Book </a>
+          <%= link_to "Book", new_art_lease_path(params[:id]), class:"book_button mt-3" %>
         <% else %>
           <h6> <strong> Currently unavailable </strong></h6>
           <a class="not_available_button mt-3" href="#"> Notify me when available </a>

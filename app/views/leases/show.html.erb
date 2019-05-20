@@ -1,0 +1,15 @@
+<div class="container">
+  <h1> Your confirmed lease:</h1>
+    <br>
+  <h3>Art piece:</h3>
+   <%= cl_image_tag @lease.art.picture, width: 300, crop: :fill %>
+  <br>
+  <br>
+  <h3> Start date: <%= @lease.start %></h3>
+  <h3> End date: <%= @lease.end %></h3>
+  <h3> Total price: <%= @lease.total_price.to_i %>£</h3>
+  <h3> Owner of this piece is: <%= @lease.art.owner.name %> - <%= @lease.art.owner.email %></h3>
+  <%= link_to "Delete", lease_path(@lease), method: :delete, class:"btn btn-danger my-3" %>
+  <h2>-----------------------------------------------------------</h2>
+  <%= link_to "Home", arts_path, class:"btn btn-primary my-3" %>
+</div>
