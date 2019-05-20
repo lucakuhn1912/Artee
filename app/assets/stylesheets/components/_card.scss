@@ -32,12 +32,29 @@
 
 }
 
+.remove-underline {
+  text-decoration: none !important;
+  color: black;
+  &:hover {
+    color: $red-new;
+  }
+}
+
 .card-trip .card-trip-infos {
   padding: 16px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
+.card-trip-infos h2 p {
+  &:hover {
+    text-decoration: none !important;
+  }
 }
 
 .card-trip-infos .card-trip-user {

@@ -14,7 +14,7 @@
     <% if params[:controller] == 'pages' && params[:action] == 'home' %>
       <%= render 'shared/navbar', back_color: "transparent", font_class: "white-font"  %>
     <% else %>
-      <%= render 'shared/navbar', back_color: "transparent", font_class: "red-font"  %>
+      <%= render 'shared/navbar', back_color: "transparent", font_class: "red-font", button_hover: "button_hover"  %>
     <% end %>
 
     <%= yield %>

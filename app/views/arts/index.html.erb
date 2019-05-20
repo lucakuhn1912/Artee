@@ -3,33 +3,37 @@
 
   <div class="flex-row">
     <% @arts.each do |art| %>
-      <div class="card-trip">
-          <% if policy(art).edit? %>
-            <div class="update-btn modify-btn rounded-circle">
-              <%= link_to edit_art_path(art), class:"btn-xs btn-default" do %>
-                <i class="fas fa-edit"></i>
-              <% end %>
-            </div>
-          <% end %>
-          <% if policy(art).destroy? %>
-            <div class="destroy-btn modify-btn rounded-circle">
-              <%= link_to art_path(art), method: :delete, class:" btn-xs", data: { confirm: 'Are you sure?' } do %>
-                <i class="fas fa-trash-alt"></i>
-              <% end %>
-            </div>
-          <% end %>
-        <%= cl_image_tag art.picture, height: 200, crop: :fill %>
-        <div class="card-trip-infos">
-          <div>
-            <h2><%= art.name %></h2>
-            <p><%= art.description %></p>
-          </div>
-          <h2 class="card-trip-pricing">£<%= art.price.round(0) %></h2>
 
-          <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-trip-user avatar-bordered"/>
+      <%= link_to art_path(art), class: "remove-underline" do %>
+        <div class="card-trip">
+            <% if policy(art).edit? %>
+              <div class="update-btn modify-btn rounded-circle">
+                <%= link_to edit_art_path(art), class:"btn-xs btn-default" do %>
+                  <i class="fas fa-edit"></i>
+                <% end %>
+              </div>
+            <% end %>
+            <% if policy(art).destroy? %>
+              <div class="destroy-btn modify-btn rounded-circle">
+                <%= link_to art_path(art), method: :delete, class:" btn-xs", data: { confirm: 'Are you sure?' } do %>
+                  <i class="fas fa-trash-alt"></i>
+                <% end %>
+              </div>
+            <% end %>
+          <%= cl_image_tag art.picture, height: 200, crop: :fill %>
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= art.name %></h2>
+              <p><%= art.description %></p>
+            </div>
+            <h2 class="card-trip-pricing">£<%= art.price.round(0) %></h2>
+
+            <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-trip-user avatar-bordered"/>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
+
   </div>
 
 

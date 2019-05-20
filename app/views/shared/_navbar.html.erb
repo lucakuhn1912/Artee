@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= (params[:controller] == 'pages' && params[:action] == 'home') ? 'navbar-fixed' : '' %>" style="background-color: <%= back_color %>">
-  <a class="navbar-brand" href="#">
-    <i class="fas fa-palette <%= font_class %>"></i>
-</a>
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <i class="fas fa-palette <%= font_class %>"></i>
+    <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -10,10 +10,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-link">
-        <%=  %>
-      </li>
-      <li class="nav-link">
-        <%= link_to "Add New Art", new_art_path, class:"btn btn-flat btn-outline-light rounded" %>
+        <%= link_to new_art_path do %>
+        <div class="btn btn-flat btn-outline-light rounded <%= font_class %> <%= button_hover %>">Add New Art</div>
+        <% end %>
       </li>
       <li class="nav-item dropdown avatar-center">
         <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
