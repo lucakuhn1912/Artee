@@ -1,11 +1,14 @@
-<div class="container">
+<div class="d-flex justify-content-between">
 
 
-  <div class="flex-row">
+  <div class="row" style="width: 60%; margin: 0 15px;">
+
     <% @arts.each do |art| %>
+      <div class="col-xs-12 col-sm-6">
 
-      <%= link_to art_path(art), class: "remove-underline" do %>
-        <div class="card-trip">
+
+          <div class="card-trip">
+            <%= link_to "", art_path(art), class: 'art-card-link'  %>
             <% if policy(art).edit? %>
               <div class="update-btn modify-btn rounded-circle">
                 <%= link_to edit_art_path(art), class:"btn-xs btn-default" do %>
@@ -20,32 +23,29 @@
                 <% end %>
               </div>
             <% end %>
-          <%= cl_image_tag art.picture, height: 200, crop: :fill %>
-          <div class="card-trip-infos">
-            <div>
-              <h2><%= art.name %></h2>
-              <p><%= art.description %></p>
+            <div class="background-image" style="background-image: url('<%= art.picture.url ? art.picture_url : 'https://images.unsplash.com/photo-1454191297004-cefa4b1042d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80' %>'); height: 200px; background-size: cover; background-repeat: no-repeat; background-position: center;"></div>
+            <%#= cl_image_tag art.picture, height: 200, crop: :fill %>
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= art.name %></h2>
+                <p><%= art.description %></p>
+              </div>
+              <h2 class="card-trip-pricing">£<%= art.price.round(0) %></h2>
             </div>
-            <h2 class="card-trip-pricing">£<%= art.price.round(0) %></h2>
-
-            <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-trip-user avatar-bordered"/>
           </div>
-        </div>
-      <% end %>
+      </div>
     <% end %>
 
   </div>
 
 
 
-  <% if policy(Art).create? %>
-    <%= link_to "List New Art", new_art_path, class: "btn btn-primary m-3" %>
-  <% end %>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+  <div
+    id="map"
+    style="width: 40%;
+    height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
+
 </div>

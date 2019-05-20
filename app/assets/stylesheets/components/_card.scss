@@ -2,7 +2,8 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width: 400px;
+  width: 100%;
+  min-height: 300px;
   margin-bottom: 4vh;
   position: relative;
 }
@@ -39,21 +40,36 @@
     color: $red-new;
   }
 }
+.card-trip:hover .card-trip-infos{
+  color: red;
+}
 
-.card-trip .card-trip-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
+
+.card-trip {
   &:hover {
-    text-decoration: none !important;
+      text-decoration: none !important;
+    }
+  .card-trip-infos {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    &:hover {
+      text-decoration: none !important;
+    }
   }
 }
 
-.card-trip-infos h2 p {
+.art-card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
   &:hover {
-    text-decoration: none !important;
+    color: $red-new;
   }
 }
 
