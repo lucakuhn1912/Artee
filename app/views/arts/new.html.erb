@@ -1,20 +1,16 @@
-<div class="container mt-3">
+<div class="container mt-3 w-50" >
   <%= simple_form_for(@art) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :artist %>
-    <%= f.input :location %>
-    <%= f.input :price %>
-    <%= f.input :value %>
-    <%= f.input :availability %>
-    <%= f.input :picture %>
-    <%= f.input :picture_cache, as: :hidden %>
+    <h4><%= f.input :name, placeholder: "Mona Lisa" %>
+    <%= f.input :description, placeholder: "Amazing piece in pristine condition. Wood frame. 2m x 2m. Works well in a dining room"%>
+    <%= f.input :artist, placeholder: "Leonardo da Vinci" %>
+    <%= f.input :location, placeholder: "Paris" %>
+    <%= f.input :price, label: "Price per day (£)" ,placeholder: "120" %>
+    <%= f.input :value, label: "Market value (£)" ,placeholder: "10000" %>
+    <%= f.input :availability, label: "Currently available" %>
+    <%= f.input :picture%>
+    <%= f.input :picture_cache, as: :hidden %></h4>
     <%= f.submit "Add masterpiece", class:"btn btn btn-block btn-outline-light button-primary rounded" %>
   <% end %>
 </div>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
