@@ -1,0 +1,27 @@
+<div class="container w-50 shadow p-5 rounded-lg border border-danger">
+  <h1 style="display: inline;"><i class="fas fa-hand-peace text-secondary"></i>
+  Hi, I'm <%=  @user.name  %> </h1><h4 style="display: inline;"><i class="far fa-check-circle text-success"></i></h4>
+  <h5> Joined in 2017</h5>
+  <br><br>
+  <h5 style="display: inline;"><i class="fas fa-quote-left text-secondary"></i></h5><h3 style="display: inline;"> <%= @user.description.capitalize  %></h3>  <h5 style="display: inline;"><i class="fas fa-quote-right text-secondary text-muted"></i> </h5>
+  <br><br><br>
+  <h3><i class="fas fa-envelope text-secondary"></i> <%= @user.email.capitalize  %> </h3>
+</div>
+
+<div class="container w-50 mt-5">
+  <h1 style="text-align: center;"> Listings:</h1>
+  <% @user.arts.each do |art| %>
+    <h3>
+      <div class="link-picture">
+      <%= link_to art_path(art) do  %>
+      <div class="listings-card-category", style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path art.picture, crop: :fill %>')"> <%= art.name %>
+      </div>
+      </div>
+      <% end %>
+      <br>
+    </h3>
+  <% end %>
+</div>
+
+<br>
+<br>

@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   end
 
   resources :leases, except: [:new, :create]
+
+  resources :users, only: [:show]
 end
