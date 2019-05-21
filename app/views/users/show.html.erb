@@ -1,14 +1,16 @@
 <div class="container w-50 shadow p-5 rounded-lg border border-danger">
   <%= cl_image_tag @user.picture, crop: :fill, width: 100, style: "border-radius: 50%;" %>
   <h1 style="display: inline;"><i class=" ml-3 fas fa-hand-peace text-secondary"></i>
-  Hi, I'm <%=  @user.name  %> </h1><h4 style="display: inline;"><i class="far fa-check-circle text-success"></i></h4>
+  Hi, I'm <%= @user.name %> </h1><h4 style="display: inline;"><i class="far fa-check-circle text-success"></i></h4>
   <br>
   <br>
   <h6 class = "text-muted"> Joined in 2017</h6>
   <br><br>
-  <h5 style="display: inline;"><i class="fas fa-quote-left text-secondary"></i></h5><h3 style="display: inline;"> <%= @user.description.capitalize  %></h3>  <h5 style="display: inline;"><i class="fas fa-quote-right text-secondary text-muted"></i> </h5>
+  <h5 style="display: inline;"><i class="fas fa-quote-left text-secondary"></i></h5><h3 style="display: inline;"> <%= @user.description == "" ? "Add a description to your profile ! " : @user.description.capitalize %></h3>  <h5 style="display: inline;"><i class="fas fa-quote-right text-secondary text-muted"></i> </h5>
   <br><br><br>
-  <h3><i class="fas fa-envelope text-secondary"></i> <%= @user.email.capitalize  %> </h3>
+  <h3><i class="fas fa-envelope text-secondary"></i> <%= @user.email.capitalize %> </h3>
+  <% phone = @user.phone_number %>
+  <h3><%= @user.phone_number.blank? ? "" : "<i class='fas fa-mobile-alt text-secondary'></i>  #{@user.phone_number}".html_safe %></h3>
 </div>
 
 <div class="container w-50 mt-5">
