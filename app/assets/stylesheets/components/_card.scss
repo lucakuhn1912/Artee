@@ -82,3 +82,29 @@
   top: -20px;
   width: 40px;
 }
+
+.painting-card-container {
+  width: 60%;
+}
+
+.painting-holder {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 315px;
+
+}
+
+.painting-frame {
+  position: absolute;
+  z-index: 5;
+  height: 100%;
+  width: 100%;
+
+}
+
+.painting-image {
+  width: 75%;
+}
