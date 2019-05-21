@@ -46,6 +46,9 @@
 
 
 .card-trip {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   &:hover {
       text-decoration: none !important;
     }
@@ -67,6 +70,7 @@
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 100;
   &:hover {
     color: $red-new;
   }
@@ -77,4 +81,30 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.painting-card-container {
+  width: 60%;
+}
+
+.painting-holder {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 315px;
+
+}
+
+.painting-frame {
+  position: absolute;
+  z-index: 5;
+  height: 100%;
+  width: 100%;
+
+}
+
+.painting-image {
+  width: 75%;
 }

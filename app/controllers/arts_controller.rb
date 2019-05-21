@@ -2,7 +2,12 @@ class ArtsController < ApplicationController
   before_action :set_art, only: %i[show edit update destroy]
   skip_before_action :authenticate_user!, only: %i[index show]
   def index
-    @arts = policy_scope(Art).where.not(latitude: nil, longitude: nil)
+    if params[:query].present?
+      @arts = policy_scope(Art).search_by_name(params[:query]).where.not(latitude: nil, longitude: nil)
+    else
+      @arts = policy_scope(Art).where.not(latitude: nil, longitude: nil)
+    end
+
 
     @markers = @arts.map do |art|
       {
