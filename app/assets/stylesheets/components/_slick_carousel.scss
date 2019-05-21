@@ -12,6 +12,16 @@
 //   margin: 0 auto;
 // }
 
+.center-items {
+  display: flex !important;
+  justify-content: center;
+}
+
+.slick-slide {
+  display: flex !important;
+  justify-content: center;
+}
+
 .carousel-item {
   display: flex !important;
   flex-direction: column;
