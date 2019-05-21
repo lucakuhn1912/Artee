@@ -8,5 +8,5 @@ Rails.application.routes.draw do
 
   resources :leases, except: [:new, :create]
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update]
 end
