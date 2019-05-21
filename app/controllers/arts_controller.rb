@@ -14,6 +14,9 @@ class ArtsController < ApplicationController
 
   def show
     # set_art
+    @review = Review.new
+    authorize @review
+    @reviews = Review.where(art:@art)
   end
 
   def new

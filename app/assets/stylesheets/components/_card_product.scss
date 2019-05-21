@@ -41,7 +41,7 @@
 
 .card-product {
   overflow: hidden;
-  height: 600px;
+  // height: 600px;
   // background: $red-new;
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -50,7 +50,7 @@
   border-radius: 5px;
 }
 
-.card-product img {
+.art-img {
   height: 100%;
   width: 600px;
   object-fit: cover;
@@ -73,6 +73,29 @@
 .card-product .card-product-infos {
   padding: 16px;
   border-radius: 5px;
+}
+
+.art-title {
+  color: #606060;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.art-price {
+  font-size: 45px;
+  em {
+    font-size: 17px;
+    color: lighten(#000, 20%);
+  }
+}
+
+.art-description {
+  font-size: 17px;
+  font-weight: bold;
+  color: #606060;
+  em {
+    color: darken(#606060, 10%);
+  }
 }
 
 .box {

@@ -3,13 +3,18 @@
   text-decoration: none;
 }
 
-#user_email, #user_password, #user_password_confirmation, #art_name, #art_description, #art_artist, #art_location, #art_price, #art_value {
+#user_email, #user_password, #user_picture, #user_name, #user_phone_number, #user_password_confirmation, #art_name, #art_description, #art_artist, #art_location, #art_price, #art_value {
   border: none;
   background: transparent;
   border-bottom: 2px solid rgba(0,0,0,0.2);
   &:focus {
     box-shadow: none;
   }
+}
+
+#review_content {
+  width: 400px;
+  resize: none;
 }
 
 .log-in-container {

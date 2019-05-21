@@ -1,6 +1,8 @@
 import "bootstrap";
 // import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
+import { initStarRating } from '../plugins/init_star_rating';
+
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
@@ -28,4 +30,5 @@ const fitMapToMarkers = (map, markers) => {
 };
 initMapbox();
 
+initStarRating();
 
