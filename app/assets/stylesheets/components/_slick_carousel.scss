@@ -28,7 +28,6 @@
   justify-content: center;
   align-items: center;
   width: 250px;
-  height: 500px;
   margin: 0 50px;
 }
 
@@ -44,22 +43,20 @@
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
-  height: 60%;
+  height: 200px;
   width: 100%;
 }
 
 .item-info {
-  height: 100%;
   padding: 15px;
   width: 100%;
 }
 
 .item-details {
-  justify-content: space-between;
   align-items: center;
   text-align: center;
   margin: 40px auto;
-  height: 500px;
+  justify-content: space-between;
   max-width: 240px;
   position: relative;
   transition: transform 0.3s cubic-bezier(.38,0,.61,1);
