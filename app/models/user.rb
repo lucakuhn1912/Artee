@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :arts, foreign_key: "owner_id", class_name: "Art"
   has_many :leases
+  mount_uploader :picture, PhotoUploader
 end
