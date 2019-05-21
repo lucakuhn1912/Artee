@@ -16,3 +16,13 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.search-bar {
+  display: flex;
+  flex-grow: 1;
+}
+
+.form-control {
+  width: 300px;
+  margin-left: 10px;
+}
