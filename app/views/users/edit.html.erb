@@ -2,6 +2,7 @@
   <%= simple_form_for(@user) do |f| %>
     <h2> <%= f.input :name, placeholder: "Full name" %> </h2>
     <h2> <%= f.input :description, placeholder: "Art amateur, big fan of modern art and Asian antiques!"%> </h2>
+    <h2> <%= f.input :phone_number, placeholder: "07 45 45 44 184"%> </h2>
     <h4> <%= f.input :picture%> </h4>
     <%= f.input :picture_cache, as: :hidden %>
     <%= f.submit "Save profile", class: "btn btn-success" %>
