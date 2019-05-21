@@ -25,11 +25,17 @@
 
 .button-primary {
   background-color: $red-new;
+  color: white;
   a {
     color: white;
   }
-
+  &:hover {
+    background-color: white;
+    color: $red-new;
+    border-color: $red-new;
+  }
 }
+
 
 .modify-btn {
   display: flex;

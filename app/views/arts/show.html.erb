@@ -1,23 +1,28 @@
 <div class="container">
   <div class="card-product">
-    <div class="card-product ">
-      <%= cl_image_tag @art.picture, crop: :fill %>
+    <div class="card-product" style="height: 600px;">
+      <%= cl_image_tag @art.picture, crop: :fill, class:'art-img' %>
     </div>
-    <div class="card-product-infos box align-items-center mx-3">
-      <h1> <strong> <%= @art.name %> </strong></h1>
-      <h3> <%= @art.description %></h3>
-      <br>
-      <br>
-
-      <div class="details d-flex flex-column">
-        <h6> <strong> By: </strong><%= @art.artist %></h6>
-        <h6> <strong> Current location: </strong><%= @art.location %></h6>
-        <h6> <strong> Price: </strong><%= @art.price.to_i %>£/day</h6>
-        <h6> <strong> Market value: </strong><%= @art.value.to_i %>£</h6>
-        <h6> <strong> Owned by: </strong><%= @art.owner.name %></h6>
+    <div class="card-product-infos box d-flex flex-column justify-content-between align-items-start m-3">
+      <div class="mb-4">
+        <h1 class="art-title"><%= @art.name %></h1>
+        <h6 class="art-price">£<%= number_with_delimiter(@art.price.to_i) %>/day <em>(£<%= number_with_delimiter(@art.value.to_i) %>)</em></h6>
+        <h3 class="art-description"> <%= @art.description %>(painted by <em><%= @art.artist %></em>)</h3>
+      </div>
+      <div class="w-100">
+        <h6 style="font-size: 25px;"><strong><i class="fas fa-map-marker-alt"></i></strong> <%= @art.location %></h6>
+        <div class="d-flex justfiy-content-start align-items-center">
+          <%= cl_image_tag @art.owner.picture, class:'avatar-large mr-2' %>
+          <div>
+            <p style="font-weight: bolder;"><%= @art.owner.name %></p>
+            <p><i class="fas fa-phone"></i> <%= @art.owner.phone_number %></p>
+          </div>
+        </div>
+      </div>
+      <div class="w-100">
         <% if @art.availability == true %>
           <h6> <strong> Currently available </strong></h6>
-          <%= link_to "Book", new_art_lease_path(params[:id]), class:"book_button mt-3" %>
+          <%= link_to "Book", new_art_lease_path(params[:id]), class:"btn red-font button-hover mt-3 w-100" %>
         <% else %>
           <h6> <strong> Currently unavailable </strong></h6>
           <a class="not_available_button mt-3" href="#"> Notify me when available </a>
@@ -27,6 +32,32 @@
   </div>
 </div>
 
-<br>
+<div class="container">
+  <h2 class="mb-3"><%= @art.reviews.count %> Reviews</h2>
+  <% @reviews.each do |review|%>
+  <div class="d-flex justify-content-start">
+    <%= cl_image_tag current_user.picture, class:"avatar mr-3" %>
+    <div>
+      <% review.rating.times do %>
+        <i class="fas fa-star"> </i>
+      <% end %>
+      <p><%= review.content %></p>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<div class="container">
+  <%= simple_form_for [@art, @review] do |f| %>
+    <%= f.input :rating, label: false, collection: [1,2,3,4,5], input_html: { class: "form-control" } %>
+    <div class="d-flex justify-content-start">
+      <%= cl_image_tag current_user.picture, class:"avatar-large mr-2" %>
+      <%= f.input :content, label: false, input_html: { class: "form-control" }%>
+      <%= f.button :button, id="send-icon", type: :submit do %>
+        <i class="fas fa-paper-plane" style="font-size: 25px; color: grey;"></i>
+      <% end %>
+    </div>
+  <% end %>
+</div>
 
 
