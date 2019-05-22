@@ -30,8 +30,18 @@
   height: 100%;
 }
 
+.carousel-painting-holder {
+  position: relative;
+  height: 100%;
+}
+
 .painting-frame {
   width: 100%;
+}
+
+.small-frame {
+  width: 108% !important;
+  height: 111% !important;
 }
 
 .card-category {
@@ -63,6 +73,12 @@
 .art-img {
   height: 80%;
   width: 85%;
+  object-fit: cover;
+}
+
+.carousel-art-img {
+  height: 80%;
+  width: 100%;
   object-fit: cover;
 }
 
