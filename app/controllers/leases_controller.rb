@@ -25,6 +25,7 @@ class LeasesController < ApplicationController
     if @lease.save
       redirect_to lease_path(@lease)
     else
+      @art = @lease.art
       render :new
     end
   end
