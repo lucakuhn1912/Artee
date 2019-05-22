@@ -11,6 +11,9 @@ class ArtsController < ApplicationController
 
     @markers = @arts.map do |art|
       {
+        name: art.name,
+        price: art.price,
+        img: art.picture_url,
         lat: art.latitude,
         lng: art.longitude
       }

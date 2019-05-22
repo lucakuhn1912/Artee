@@ -16,11 +16,20 @@ const initMapbox = () => {
     });
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
+      let popup = new mapboxgl.Popup({ offset: 25 })
+        .setHTML(`
+          <div class="d-flex justify-content-start align-items-center">
+            <img src="${marker.img}" width=50 height=50 class="mr-2"/>
+            <p class="m-0">${marker.name} (£${marker.price})</p>
+          </div>
+          `);
+
       new mapboxgl.Marker()
       .setLngLat([ marker.lng, marker.lat ])
+      .setPopup(popup)
       .addTo(map);
+      fitMapToMarkers(map, markers);
     });
-    fitMapToMarkers(map, markers);
   }
 };
 
