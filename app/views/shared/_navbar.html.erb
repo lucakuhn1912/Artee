@@ -27,7 +27,7 @@
           <% if current_user.picture.url %>
             <%= cl_image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
-            <p class=“avatar nopic”, id=“navbarDropdown” data-toggle=“dropdown” aria-haspopup=“true” > <%= current_user.name.first %> </p>
+            <%= cl_image_tag current_user.picture, class: "avatar dropdown-toggle bg-white", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <%=link_to "Profile", user_path(current_user), class:"dropdown-item"%>
