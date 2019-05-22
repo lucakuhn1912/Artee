@@ -21,7 +21,7 @@ class ArtsController < ApplicationController
     # set_art
     @review = Review.new
     authorize @review
-    @reviews = Review.where(art:@art)
+    @reviews = @art.reviews
   end
 
   def new

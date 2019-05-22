@@ -4,7 +4,10 @@
 <div class="container">
   <div class="card-product">
     <div class="card-product" style="height: 600px;">
-      <%= cl_image_tag @lease.art.picture, crop: :fill, class:'art-img' %>
+      <div class="painting-holder">
+        <%= image_tag 'frame.png', class: "painting-frame" %>
+        <%= cl_image_tag @lease.art.picture, crop: :fill, class:'art-img' %>
+      </div>
     </div>
     <div class="card-product-infos box d-flex flex-column justify-content-between align-items-start m-3">
       <div class="mb-4">
@@ -29,5 +32,5 @@
 </div>
 
   <br>
-  <%= link_to "Back to all art pieces", arts_path, class:"btn btn-primary my-3" %>
+  <%= link_to "Back to all art pieces", arts_path, class:"btn red-font button-hover my-3" %>
 </div>

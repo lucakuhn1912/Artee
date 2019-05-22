@@ -1,12 +1,14 @@
 <div class="container">
-  <h1> Your leases:</h1>
-    <br>
+  <h1 class="mt-3"> Your leases:</h1>
 <% @leases.each do |lease| %>
 
 <div class="container">
   <div class="card-product">
     <div class="card-product" style="height: 600px;">
-      <%= cl_image_tag lease.art.picture, crop: :fill, class:'art-img' %>
+      <div class="painting-holder">
+        <%= image_tag 'frame.png', class: "painting-frame" %>
+        <%= cl_image_tag lease.art.picture, crop: :fill, class:'art-img' %>
+      </div>
     </div>
     <div class="card-product-infos box d-flex flex-column justify-content-between align-items-start m-3">
       <div class="mb-4">
@@ -24,10 +26,10 @@
             <p><i class="fas fa-phone"></i> <%= lease.art.owner.phone_number %></p>
           </div>
         </div>
-          <%= link_to "Cancel lease", lease_path(lease), method: :delete, class:"btn btn-danger m-3" %>
+          <%= link_to "Cancel lease", lease_path(lease), method: :delete, class:"btn button-primary  m-3" %>
       </div>
     </div>
   </div>
 </div>
 <% end %>
-  <%= link_to "Home", arts_path, class:"btn btn-primary my-3" %>
+  <%= link_to "Keep browsing more art", arts_path, class:"btn red-font button-hover my-3" %>
