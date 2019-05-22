@@ -5,10 +5,11 @@ class ReviewsController < ApplicationController
     @art = Art.find(params[:art_id])
     @review.art = @art
     @review.user_id = current_user
+    @reviews = @art.reviews
     if @review.save
       redirect_to art_path(@art)
     else
-      render "art/show"
+      render 'arts/show'
     end
   end
 end

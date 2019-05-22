@@ -1,7 +1,6 @@
 import "bootstrap";
-// import 'mapbox-gl/dist/mapbox-gl.css';
+import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
-import { initStarRating } from '../plugins/init_star_rating';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 
 
@@ -31,7 +30,5 @@ const fitMapToMarkers = (map, markers) => {
   map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
 };
 initMapbox();
-
-initStarRating();
 
 initAutocomplete();

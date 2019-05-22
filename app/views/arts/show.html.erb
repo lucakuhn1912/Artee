@@ -1,7 +1,10 @@
 <div class="container">
   <div class="card-product">
     <div class="card-product" style="height: 600px;">
-      <%= cl_image_tag @art.picture, crop: :fill, class:'art-img' %>
+      <div class="painting-holder">
+        <%= image_tag 'frame.png', class: "painting-frame" %>
+        <%= cl_image_tag @art.picture, crop: :fill, class:'art-img' %>
+      </div>
     </div>
     <div class="card-product-infos box d-flex flex-column justify-content-between align-items-start m-3">
       <div class="mb-4">
@@ -22,7 +25,7 @@
       <div class="w-100">
         <% if @art.availability == true %>
           <h6> <strong> Currently available </strong></h6>
-          <%= link_to "Book", new_art_lease_path(params[:id]), class:"btn red-font button-hover mt-3 w-100" %>
+          <%= link_to "Book", new_art_lease_path(@art), class:"btn red-font button-hover mt-3 w-100" %>
         <% else %>
           <h6> <strong> Currently unavailable </strong></h6>
           <a class="not_available_button mt-3" href="#"> Notify me when available </a>
@@ -34,32 +37,17 @@
 
 <div class="container">
   <h2 class="mb-3"><%= @art.reviews.count %> Reviews</h2>
-  <% @reviews.each do |review|%>
-  <div class="d-flex justify-content-start">
-    <%= cl_image_tag current_user.picture, class:"avatar mr-3" %>
-    <div>
-      <% review.rating.times do %>
-        <i class="fas fa-star"> </i>
-      <% end %>
-      <p><%= review.content %></p>
-    </div>
+  <div id="review_list">
+    <% @reviews.each do |review|%>
+      <%= render 'reviews/review', review:review %>
+    <% end %>
   </div>
-  <% end %>
 </div>
 
 <div class="container">
-  <%= simple_form_for [@art, @review] do |f| %>
-    <%= f.input :rating, label: false, collection: [1,2,3,4,5], input_html: { class: "form-control" } %>
-    <div class="d-flex justify-content-start">
-      <% if user_signed_in? %>
-        <%= cl_image_tag current_user.picture, class:"avatar-large mr-2" %>
-      <% end %>
-      <%= f.input :content, label: false, input_html: { class: "form-control" }%>
-      <%= f.button :button, id="send-icon", type: :submit do %>
-        <i class="fas fa-paper-plane" style="font-size: 25px; color: grey;"></i>
-      <% end %>
-    </div>
-  <% end %>
+  <%= render 'reviews/form', art:@art, review:@review %>
 </div>
-
+<% content_for(:after_js) do %>
+  <%= javascript_pack_tag 'components/init_star_rating' %>
+<% end %>
 
