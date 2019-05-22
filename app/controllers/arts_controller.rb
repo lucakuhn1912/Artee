@@ -3,7 +3,7 @@ class ArtsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   def index
     if params[:query].present?
-      @arts = policy_scope(Art).search_by_name(params[:query]).where.not(latitude: nil, longitude: nil)
+      @arts = policy_scope(Art).search_by_name_and_location(params[:query]).where.not(latitude: nil, longitude: nil)
     else
       @arts = policy_scope(Art).where.not(latitude: nil, longitude: nil)
     end
