@@ -1,7 +1,10 @@
 <div class="center-items">
   <%= link_to art_path(art) do %>
     <div class="item-details box-shadow carousel-item">
-        <%= cl_image_tag art.picture, class:"avatar-lg item-absolute item-photo" %>
+        <div class="carousel-painting-holder">
+        <%= image_tag 'frame.png', class: "carousel-painting-frame small-frame" %>
+        <%= cl_image_tag art.picture, crop: :fill, class:'carousel-art-img' %>
+      </div>
       <div class="item-info ">
         <p><%= art.name %></p>
         <p class="truncate"><%= art.description %></p>
