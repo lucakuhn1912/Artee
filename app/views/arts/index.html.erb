@@ -6,7 +6,6 @@
     <% @arts.each do |art| %>
       <div class="col-xs-12 col-sm-6">
 
-
           <div class="card-trip">
             <%= link_to "", art_path(art), class: 'art-card-link'  %>
             <% if policy(art).edit? %>
@@ -23,8 +22,9 @@
                 <% end %>
               </div>
             <% end %>
-            <div class="background-image" style=" height: 250, background-image: url('<%= art.picture.url ? art.picture_url : 'https://images.unsplash.com/photo-1454191297004-cefa4b1042d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80' %>'); height: 200px; background-size: cover; background-repeat: no-repeat; background-position: center;"></div>
-            <%#= cl_image_tag art.picture, height: 200, crop: :fill %>
+            <div class="background-image" style="height: 250; background-image: url(
+            '<%= art.picture.url ? (cl_image_path art.picture, crop: :fill) : 'https://images.unsplash.com/photo-1454191297004-cefa4b1042d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80' %>');
+             height: 200px; background-size: cover; background-repeat: no-repeat; background-position: center;"></div>
             <div class="card-trip-infos">
               <div>
                 <h2><%= art.name %></h2>
@@ -37,8 +37,6 @@
     <% end %>
 
   </div>
-
-
 
   <div
     id="map"
