@@ -14,18 +14,21 @@ User.create(
   email: 'tarek@gmail.com',
   password: '123456',
   name: 'Tarek',
+  description: 'Interested in modern art and greek sculptures. Love the platform <3 ',
 )
 
 User.create(
   email: 'luca@gmail.com',
   password: '123456',
   name: 'Luca',
+  description: 'Into roman antiques and in love with ceramics!',
 )
 
 User.create(
   email: 'tijani@gmail.com',
   password: '123456',
   name: 'Tijani',
+  description: 'Passion for asian art and new Chinese era :)) ',
 )
 
 wagon = Art.new(
