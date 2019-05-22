@@ -1,5 +1,6 @@
 import "bootstrap";
 import 'mapbox-gl/dist/mapbox-gl.css';
+import "jquery-bar-rating/dist/themes/css-stars.css";
 import mapboxgl from 'mapbox-gl';
 
 
