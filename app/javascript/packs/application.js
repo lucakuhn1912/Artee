@@ -2,6 +2,8 @@ import "bootstrap";
 // import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
 import { initStarRating } from '../plugins/init_star_rating';
+import { initAutocomplete } from '../plugins/init_autocomplete';
+
 
 
 const initMapbox = () => {
@@ -32,3 +34,4 @@ initMapbox();
 
 initStarRating();
 
+initAutocomplete();
