@@ -15,11 +15,23 @@
 .center-items {
   display: flex !important;
   justify-content: center;
+  &:focus {
+    outline: none !important;
+  }
+  a:focus {
+    outline: none !important;
+  }
 }
 
 .slick-slide {
   display: flex !important;
   justify-content: center;
+  &:focus {
+    outline: none !important;
+  }
+  div:focus {
+    outline: none !important;
+  }
 }
 
 .carousel-item {
@@ -65,5 +77,8 @@
   &:hover {
     transform: scale(1.05) translateY(-15px);
     box-shadow: 1px 1px 10px grey;
+  }
+  &:focus {
+    outline: none !important;
   }
 }

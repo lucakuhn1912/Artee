@@ -6,7 +6,7 @@ $('.slick-carousel').slick({
   infinite: true,
   slidesToShow: 3,
   slidesToScroll: 2,
-  autoplay: false,
+  autoplay: true,
   responsive: [
   {
     breakpoint: 992,
