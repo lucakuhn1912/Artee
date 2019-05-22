@@ -15,6 +15,7 @@ User.create(
   password: '123456',
   name: 'Tarek',
   description: 'Interested in modern art and greek sculptures. Love the platform <3 ',
+  phone_number: '07 34 57 19 283',
 )
 
 User.create(
@@ -22,6 +23,7 @@ User.create(
   password: '123456',
   name: 'Luca',
   description: 'Into roman antiques and in love with ceramics!',
+  phone_number: '07 23 35 10 674',
 )
 
 User.create(
@@ -29,6 +31,7 @@ User.create(
   password: '123456',
   name: 'Tijani',
   description: 'Passion for asian art and new Chinese era :)) ',
+  phone_number: '06 12 10 31 02',
 )
 
 wagon = Art.new(
